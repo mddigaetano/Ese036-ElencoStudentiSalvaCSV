@@ -19,6 +19,33 @@ struct s_studente {
 typedef struct s_studente studente;
 
 int main(int argc, char** argv) {
+    int i;
+    FILE *pfile;
+    studente alunno;
+    
+    if(pfile=fopen(FNAME,"w")){
+        fprintf(pfile,"Nome;Cognome;Eta';Classe\n");
+        
+        for(i=0;i<N;i++){
+            printf("Inserisci il nome del %d° alunno: ",i+1);
+            scanf("%s", alunno.nome);
+            fprintf(pfile,"%s;",alunno.nome);
+            printf("Inserisci il cognome del %d° alunno: ",i+1);
+            scanf("%s", alunno.cognome);
+            fprintf(pfile,"%s;",alunno.cognome);
+            printf("Inserisci l'eta' del %d° alunno: ",i+1);
+            scanf("%d", &alunno.eta);
+            fprintf(pfile,"%d;",alunno.eta);
+            printf("Inserisci la classe del %d° alunno: ",i+1);
+            scanf("%s", alunno.classe);
+            fprintf(pfile,"%s\n",alunno.classe);
+            printf("\n");
+        }
+        
+        fclose(pfile);
+    }
+    else
+        exit(1);
     
     return (EXIT_SUCCESS);
 }
